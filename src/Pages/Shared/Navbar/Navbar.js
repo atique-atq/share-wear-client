@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const Navbar = () => {
     </React.Fragment>
 
     return (
-        <div className="navbar bg-base-100 flex justify-between text-[#ee4871] font-bold">
+        <div className="navbar px-12 bg-base-100 flex justify-between text-[#ee4871] font-bold bg-gradient-to-r from-[#fed5db] to-[#fcb2bc] ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -38,7 +39,12 @@ const Navbar = () => {
                  mr-1">share<span className='ml-1 text-[#ee4871] font-bold not-italic font-sans'> Wear</span></Link>
             </div>
             <div className="form-control">
-                <input type="text" placeholder="Search products" className="input input-bordered md:w-full w-7/12 ml-4" />
+                <div className="input-group">
+                    <input type="text" placeholder="Search…" className="input input-bordered  md:w-full w-7/12 ml-4" />
+                    <button className="btn btn-square">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </button>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 text-xl">
