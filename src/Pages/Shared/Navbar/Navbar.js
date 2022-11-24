@@ -24,7 +24,7 @@ const Navbar = () => {
     </React.Fragment>
 
     return (
-        <div className="navbar bg-base-100 flex justify-between">
+        <div className="navbar bg-base-100 flex justify-between text-[#ee4871] font-bold">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -35,10 +35,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost normal-case font-mono  text-2xl text-gray-500 italic
-                 mr-1">share<span className='ml-1 text-gray-800 font-bold not-italic font-sans'> Wear</span></Link>
+                 mr-1">share<span className='ml-1 text-[#ee4871] font-bold not-italic font-sans'> Wear</span></Link>
             </div>
             <div className="form-control">
-                <input type="text" placeholder="Search products" className="input input-bordered md:w-full w-7/12 " />
+                <input type="text" placeholder="Search products" className="input input-bordered md:w-full w-7/12 ml-4" />
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 text-xl">
