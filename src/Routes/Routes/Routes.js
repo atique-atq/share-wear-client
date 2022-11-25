@@ -4,6 +4,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Category from "../../Pages/Category/Category";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import NoPageFound from "../../Pages/Shared/NoPageFound/NoPageFound";
 import SignUp from "../../Pages/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
                 element: <PrivateRoute> <Category></Category></PrivateRoute>
             },
+            {
+                path: '*',
+                element: <NoPageFound></NoPageFound>
+            }
         ]
     }
 ])
