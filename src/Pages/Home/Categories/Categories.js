@@ -4,8 +4,6 @@ import Loading from '../../Shared/Loading/Loading';
 import HomeCategoryCard from './HomeCategoryCard';
 
 const Categories = () => {
-    const categoryCardBg = ['#F0FFFF', '#FFF1E1', '#FFD6DE'];
-
     const { data: categories = [], isLoading } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
@@ -21,12 +19,11 @@ const Categories = () => {
 
     return (
         <section className='my-16'>
-            <p className='text-center text-secondary font-bold'>Categories</p>
-            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6'>
+            <p className='-bold font-mono text-4xl text-center font-bold'>Categories</p>
+            <div className='grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6 mx-8'>
                 {
-                    categories?.map((category, index) => <HomeCategoryCard
+                    categories?.map((category) => <HomeCategoryCard
                         key={category._id}
-                        bgColorCode={categoryCardBg[index]}
                         category={category}
                     ></HomeCategoryCard>)
                 }
