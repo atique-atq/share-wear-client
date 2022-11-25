@@ -1,0 +1,74 @@
+[
+    {
+    "categoryId": "01",
+    "categoryName": "Women's formal",
+    "productName": "Pakistani Salwar kameez",
+    "location": "Dhaka (Khilkhet)",
+    "resalePrice": "2500",
+    "originalPrice": "4500",
+    "yearsOfUse": "2 months",
+    "postingTime":"2022-11-11T04:54:07.628Z",
+    "sellerName": "Dr. Suraya Zebin",
+    "image": "https://i.ibb.co/98wvMy1/pakistani-Dress.webp"
+    },
+    {
+    "categoryId": "01",
+    "categoryName": "Women's formal",
+    "productName": "Yellow Brand's 3 pc Lawn",
+    "location": "Dhaka (Mirpur)",
+    "resalePrice": "4300",
+    "originalPrice": "5500",
+    "yearsOfUse": "6 months",
+    "postingTime":"2022-11-13T04:54:07.628Z",
+    "sellerName": "Nishat Tasnim",
+    "image": "https://i.ibb.co/gdkxJPV/yello-Lawn.webp"
+    },
+    {
+    "categoryId": "02",
+    "categoryName": "Saree Hub",
+    "productName": "Aarong Brand's Embroidered Silk Saree",
+    "location": "Dhaka (Banani)",
+    "resalePrice": "10000",
+    "originalPrice": "15540",
+    "yearsOfUse": "2 months",
+    "postingTime":"2022-11-21T04:54:07.628Z",
+    "sellerName": "Nushrat Ferdousi",
+    "image": "https://i.ibb.co/GFpkfPn/arong-Sharee.jpg"
+    },
+    {
+    "categoryId": "02",
+    "categoryName": "Saree Hub",
+    "productName": "Indian's Cotton Sharee",
+    "location": "Dhaka (Dhanmondi)",
+    "resalePrice": "5000",
+    "originalPrice": "8940",
+    "yearsOfUse": "4 months",
+    "postingTime":"2022-11-16T04:54:07.628Z",
+    "sellerName": "Zahida Ferdousi",
+    "image": "https://i.ibb.co/c63fPrt/Tangail-Sharee.jpg"
+    },
+    {
+    "categoryId": "03",
+    "categoryName": "Women's Jackets & Blazer",
+    "productName": "Chinese Cotton Jacket",
+    "location": "Gazipur Sadar",
+    "resalePrice": "4000",
+    "originalPrice": "7940",
+    "yearsOfUse": "6 months",
+    "postingTime":"2022-11-20T06:54:07.628Z",
+    "sellerName": "Nusrat Toma",
+    "image": "https://i.ibb.co/PhjJHmW/jacket-1.jpg"
+    },
+    {
+    "categoryId": "03",
+    "categoryName": "Women's Jackets & Blazer",
+    "productName": "Yellow Brand's Jeans Jacket",
+    "location": "Dhaka(Mohammadpur)",
+    "resalePrice": "2500",
+    "originalPrice": "3940",
+    "yearsOfUse": "6 months",
+    "postingTime":"2022-11-21T06:54:07.628Z",
+    "sellerName": "Liza Sharmin",
+    "image": "https://i.ibb.co/6yXfYjc/jeans-Jacket.webp"
+    }
+]
