@@ -18,9 +18,9 @@ const Categories = () => {
     }
 
     return (
-        <section className='my-16'>
+        <section className='mt-28'>
             <p className='font-mono text-4xl text-center font-bold'>Product Categories</p>
-            <div className='grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6 mx-8'>
+            <div className='grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-20 my-8'>
                 {
                     categories?.map((category) => <HomeCategoryCard
                         key={category._id}

@@ -44,7 +44,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost normal-case font-mono  text-2xl text-gray-500 italic
+                <Link to="/" className="btn btn-ghost normal-case font-mono  md:text-2xl text-sm text-gray-500 italic
                  mr-1">share<span className='ml-1 text-[#ee4871] font-bold not-italic font-sans'> Wear</span></Link>
             </div>
             <div className="form-control">
