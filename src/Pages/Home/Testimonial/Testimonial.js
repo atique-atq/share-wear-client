@@ -12,10 +12,10 @@ const Testimonial = () => {
                 </div>
                 <div className="xl:px-20 px-8 py-20 2xl:mx-auto 2xl:container relative z-40">
                     <CarouselProvider naturalSlideWidth={100} isIntrinsicHeight={true} totalSlides={2}>
-                        <h3 className="text-4xl font-bold xl:block hidden leading-tight text-gray-800">
+                        <h3 className="text-4xl font-bold font-mono xl:block hidden leading-tight text-gray-800">
                             What our customers are saying
                         </h3>
-                        <h3 className="text-4xl font-bold xl:hidden block leading-tight lg:leading-10 text-gray-800">What our customers are saying</h3>
+                        <h3 className="text-4xl font-bold font-mono xl:hidden block leading-tight lg:leading-10 text-gray-800">What our customers are saying</h3>
                         <Slider>
                             <Slide index={0} tabIndex="null">
                                 <div className="flex">
