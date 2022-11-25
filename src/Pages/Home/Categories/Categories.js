@@ -19,7 +19,7 @@ const Categories = () => {
 
     return (
         <section className='my-16'>
-            <p className='-bold font-mono text-4xl text-center font-bold'>Categories</p>
+            <p className='-bold font-mono text-4xl text-center font-bold'>Product Categories</p>
             <div className='grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6 mx-8'>
                 {
                     categories?.map((category) => <HomeCategoryCard
