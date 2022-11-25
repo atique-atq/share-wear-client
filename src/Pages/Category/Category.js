@@ -10,9 +10,9 @@ const Category = () => {
     }
 
     return (
-        <div>
-            <h3 className='font-bold text-3xl text-center my-8 mt-16
-             font-sans underline decoration-slate-200 underline-offset-4 font-mono'> {titleName}</h3>
+        <div className='mb-24'>
+            <h3 className='font-bold text-3xl text-center my-12 mt-16
+             font-sans underline decoration-slate-200 underline-offset-4 font-mono'>Explore {titleName}</h3>
             <div className='grid gap-10 grid-cols-1 align-middle content-center place-content-center justify-items-center'>
                 {
                     products?.map(product => <CategoryProduct

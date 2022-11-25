@@ -15,7 +15,7 @@ const CategoryProduct = ({ product }) => {
                     <div className="foo">
                         {images.map((item, index) => (
                             <PhotoView key={index} src={item}>
-                                <figure><img className='md:w-80 md:h-80 w-40 h-56' src={item} alt="doctor!" /></figure>
+                                <figure><img className='md:w-80 md:h-96 w-40 h-56' src={item} alt="doctor!" /></figure>
                             </PhotoView>
                         ))}
                     </div>
@@ -30,6 +30,7 @@ const CategoryProduct = ({ product }) => {
                     <small>Year of Use: {yearsOfUse}</small>
                     <small className='italic'>Posting Time: {postingDate}</small>
                     <small className='font-semibold border-solid border-t-2 mt-3 pt-1'>Seller: {sellerName}</small>
+                    <br />
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary">Book Now</button>
                     </div>
