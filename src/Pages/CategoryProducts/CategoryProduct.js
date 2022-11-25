@@ -2,7 +2,7 @@ import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { format } from 'date-fns';
 
-const CategoryProduct = ({ product }) => {
+const CategoryProduct = ({ product, setProductForModal }) => {
     const { _id, categoryId, categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, postingTime, sellerName, image } = product;
     const images = [image]
     const postingDate = format(Date.parse(postingTime), 'Pp');
@@ -32,13 +32,17 @@ const CategoryProduct = ({ product }) => {
                     <small className='font-semibold border-solid border-t-2 mt-3 pt-1'>Seller: {sellerName}</small>
                     <br />
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Book Now</button>
+                        <label
+                            onClick={() => setProductForModal(product)}
+                            className="btn btn-primary"
+                            htmlFor="booking-modal"
+                        >Book Now</label>
                     </div>
                     <br />
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 };
 

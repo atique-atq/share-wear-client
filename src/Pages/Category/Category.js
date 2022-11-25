@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BookingModal from '../BookingModal/BookingModal';
 import CategoryProduct from '../CategoryProducts/CategoryProduct';
 
 const Category = () => {
     let products = useLoaderData();
-    let titleName = 'All Products'
+    let titleName = 'Products'
+    const [productForModal, setProductForModal] = useState(null);
+    console.log('---modal check kori', productForModal);
     if (products) {
         titleName = products[0].categoryName
     }
@@ -18,9 +21,20 @@ const Category = () => {
                     products?.map(product => <CategoryProduct
                         key={product._id}
                         product={product}
+                        setProductForModal={setProductForModal}
                     ></CategoryProduct>)
                 }
             </div>
+
+            {
+                productForModal &&
+                <BookingModal
+                // selectedDate={selectedDate}
+                // treatment={treatment}
+                // setTreatment={setTreatment}
+                // refetch={refetch}
+                ></BookingModal>
+            }
         </div>
     );
 };

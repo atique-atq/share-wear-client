@@ -4,7 +4,6 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 
 const HomeCategoryCard = ({ category }) => {
     const { _id, name, image, categoryId } = category;
-    console.log('---', _id)
     let categoryCardBg = ['#bdd2b3', '#EEE4DA', '#E6C7D6'];
     let index = parseInt(categoryId)
 
