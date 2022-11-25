@@ -2,10 +2,11 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div class="flex justify-center items-center">
-            <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-                <span class="visually-hidden">...</span>
+        <div className="flex justify-start items-center">
+            <div className="ml-8 mt-6 text-2xl spinner-border border-green-600 animate-spin inline-block w-12 h-12 border-8 rounded-full" role="status">
+                <span className="visually-hidden">...</span>
             </div>
+            <p>Loading...</p>
         </div>
     );
 };

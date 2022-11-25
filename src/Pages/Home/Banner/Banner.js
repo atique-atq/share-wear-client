@@ -5,11 +5,11 @@ import dresses from '../../../assets/images/banner-dresses.avif';
 
 const Banner = () => {
     return (
-        <div>
-            <div className="hero bg-gradient-to-r from-[#fed5db] to-[#fcb2bc] pb-4 shadow-xl px-[5%]">
+        <div >
+            <div className="hero  bg-gradient-to-r from-[#fed5db] to-[#fcb2bc] pb-4 shadow-xl px-[5%]">
                 <div className="hero-content flex-col lg:flex-row-reverse lg:pr-4">
                     <div className='relative w-full'>
-                        <img src={dresses} alt="" className="w-4/5 h-full border-8 border-gray-200 rounded-lg drop-shadow-2xl" />
+                        <img src={dresses} alt="" className="w-4/5 h-full border-8 border-gray-200 rounded-lg " />
                         <img src={person} alt="" className="absolute right-5 top-1/3 w-2/5  rounded-lg shadow-2xl" />
 
                     </div>

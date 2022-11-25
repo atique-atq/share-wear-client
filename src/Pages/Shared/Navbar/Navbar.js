@@ -13,11 +13,22 @@ const Navbar = () => {
 
     const menuItems = <React.Fragment>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/blog">blog</Link></li>
+        <li><Link to="/blog">Blog</Link></li>
         {user?.uid ?
             <>
                 <li><Link to="/dashboard">Dashboard</Link></li>
                 <li><button onClick={handleLogOut}>Sign out</button></li>
+                {
+                    user?.photoURL && <li className='font-semibold'>
+                        <button className=' border-0 text-gray-500' title={user?.displayName}>
+                            <div className='avatar'>
+                                <div className="w-10 rounded-full">
+                                    <img src={user.photoURL} alt="" />
+                                </div>
+                            </div>
+                        </button>
+                    </li>
+                }
             </>
             : <li><Link to="/login">Login</Link></li>}
     </React.Fragment>
