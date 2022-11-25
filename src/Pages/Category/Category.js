@@ -30,7 +30,7 @@ const Category = () => {
                 productForModal &&
                 <BookingModal
                 // selectedDate={selectedDate}
-                // treatment={treatment}
+                productForModal={productForModal}
                 // setTreatment={setTreatment}
                 // refetch={refetch}
                 ></BookingModal>

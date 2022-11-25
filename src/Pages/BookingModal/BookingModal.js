@@ -3,9 +3,9 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
-const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
+const BookingModal = ({ productForModal, setTreatment, selectedDate, refetch }) => {
     // treatment is just another name of appointmentOptions with name, slots, _id
-    // const { name: treatmentName, slots, price } = treatment;
+    const { _id, categoryId, categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, postingTime, sellerName, image } = productForModal;
     // const date = format(selectedDate, 'PP');
     const { user } = useContext(AuthContext);
 
@@ -59,9 +59,10 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-lg font-bold">test value</h3>
+                    <h3 className="text-lg font-bold">{productName}</h3>
                     <form className='grid grid-cols-1 gap-3 mt-10'>
-                        <input type="text" disabled value={'tst'} className="input w-full input-bordered " />
+                        <input type="text" disabled value={user?.displayName} className="input w-full input-bordered " />
+                        <input type="text" disabled value={user?.email} className="input w-full input-bordered " />
                         <select name="slot" className="select select-bordered w-full">
                             {/* {
                                 slots.map((slot, i) => <option
