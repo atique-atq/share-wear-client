@@ -14,8 +14,8 @@ const Banner = () => {
 
                     </div>
                     <div className='mt-8 lg:ml-1'>
-                        <h1 className="text-4xl font-bold ">Want budget dresses?</h1>
-                        <h1 className="text-3xl font-semibold text-gray-500 my-4">Clothes to give away?</h1>
+                        <h1 className="text-4xl font-bold ">Want Used Dresses?</h1>
+                        <h1 className="text-3xl font-semibold text-gray-500 my-4">Best Condition Must?</h1>
                         <p className="text-md text-gray-500 mb-8 font-sans pl-4 border-gray-600 border-l-4">Over 1 million people around the country are giving and getting cheap/free second hand dresses in their local communities. Just explore and order from our verified sellers and buyers.</p>
                         <button className="btn btn-primary bg-[#fd6288] border-0">Explore Dresses</button>
                     </div>

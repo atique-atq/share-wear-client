@@ -23,6 +23,7 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirmPassword.value;
+        const role = form.role.value;
         console.log('name: ', name);
 
         if (password.length < 6) {
@@ -43,7 +44,7 @@ const SignUp = () => {
                 console.log(user);
                 setError('');
                 form.reset();
-                handleUpdateUserProfile(name, photoURL);
+                handleUpdateUserProfile(name, photoURL, email, role);
                 navigate(from, { replace: true });
                 toast.success('Registration Successful', {
                     position: "top-right"
@@ -57,16 +58,35 @@ const SignUp = () => {
             })
     }
 
-    const handleUpdateUserProfile = (name, photoURL) => {
+    const handleUpdateUserProfile = (name, photoURL, email, role) => {
         const profile = {
             displayName: name,
             photoURL: photoURL
         }
 
         updateUserProfile(profile)
-            .then(() => { })
+            .then(() => {
+                saveUser(name, email, role);
+            })
             .catch(error => console.error(error));
     }
+
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // setCreatedUserEmail(email);
+            })
+    }
+
+
 
     return (
         <div>
@@ -84,22 +104,38 @@ const SignUp = () => {
                         <h6 className="text-3xl text-center font-bold py-0 my-0 text-green-700">Register/ Sign UP</h6>
                         <form onSubmit={handleSubmit} className="card-body">
                             <div className="form-control">
-                                <input type="text" name='name' placeholder="your name" className="input input-bordered" required />
+                                <input type="text" name='name' placeholder="your name" className="input input-bordered rounded-none" required />
                             </div>
+
                             <div className="form-control">
-                                <input type="email" name='email' placeholder="your email" className="input input-bordered" required />
+                                <input type="email" name='email' placeholder="your email" className="input input-bordered rounded-none" required />
                             </div>
+
                             <div className="form-control">
-                                <input type="text" name='photoUrl' placeholder="your photo URL" className="input input-bordered" />
+                                <input type="text" name='photoUrl' placeholder="your photo URL" className="input input-bordered rounded-none" />
                             </div>
+
                             <div className="form-control">
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                                <input type="password" name='password' placeholder="password" className="input input-bordered rounded-none" required />
                             </div>
+
                             <div className="form-control">
-                                <input type="password" name='confirmPassword' placeholder="Confirm password" className="input input-bordered" required />
+                                <input type="password" name='confirmPassword' placeholder="Confirm password" className="input input-bordered rounded-none" required />
                             </div>
+
+                            <div className="form-control">
+                                <div className='flex input input-bordered rounded-none'>
+                                    <label className="label w-72"> <span className="label-text text-base ">Select User Type:</span></label>
+
+                                    <select name='role' className='w-full bg-base-100 border-none' defaultValue={'buyer'}>
+                                        <option className='border-0 font-semibold' value="buyer" >User</option>
+                                        <option className='border-0 font-semibold' value="seller">Seller</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div className="form-control py-0 my-0">
-                                <input className="btn btn-info hover:bg-success" type="submit" value="Sign Up" />
+                                <input className="btn btn-info hover:bg-success rounded-none" type="submit" value="Sign Up" />
                             </div>
                         </form>
                         <p className="text-red-500 font-bold text-center">
