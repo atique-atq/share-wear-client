@@ -5,9 +5,8 @@ import CategoryProduct from '../CategoryProducts/CategoryProduct';
 
 const Category = () => {
     let products = useLoaderData();
-    let titleName = 'Products'
     const [productForModal, setProductForModal] = useState(null);
-    console.log('---modal check kori', productForModal);
+    let titleName = 'Products'
     if (products) {
         titleName = products[0].categoryName
     }
@@ -29,8 +28,8 @@ const Category = () => {
             {
                 productForModal &&
                 <BookingModal
-                // selectedDate={selectedDate}
-                productForModal={productForModal}
+                    // selectedDate={selectedDate}
+                    productForModal={productForModal}
                 // setTreatment={setTreatment}
                 // refetch={refetch}
                 ></BookingModal>
