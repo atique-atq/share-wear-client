@@ -64,7 +64,6 @@ const Login = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('0000', data.acknowledged)
                 // setCreatedUserEmail(email);
             })
     }
