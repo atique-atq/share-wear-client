@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import Category from "../../Pages/Category/Category";
@@ -40,6 +41,34 @@ const router = createBrowserRouter([
                 element: <NoPageFound></NoPageFound>
             }
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        // errorElement: <DisplayError></DisplayError>,
+        // children: [
+        //     {
+        //         path: '/dashboard',
+        //         element: <MyAppointment></MyAppointment>
+        //     },
+        //     {
+        //         path: '/dashboard/allusers',
+        //         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        //     },
+        //     {
+        //         path: '/dashboard/adddoctor',
+        //         element: <AdminRoute><AddDoctor></AddDoctor></AdminRoute>
+        //     },
+        //     {
+        //         path: '/dashboard/managedoctors',
+        //         element: <AdminRoute><ManageDoctors></ManageDoctors></AdminRoute>
+        //     },
+        //     {
+        //         path: '/dashboard/payment/:id',
+        //         element: <Payment></Payment>,
+        //         loader: ({ params }) => fetch(`https://doctors-portal-server-rust.vercel.app/bookings/${params.id}`)
+        //     },
+        // ]
     }
 ])
 
