@@ -1,12 +1,9 @@
-import { format } from 'date-fns';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const BookingModal = ({ productForModal, setProductForModal }) => {
-    // treatment is just another name of appointmentOptions with name, slots, _id
     const { _id, productName, resalePrice } = productForModal;
-    // const date = format(selectedDate, 'PP');
     const { user } = useContext(AuthContext);
 
     const handleBooking = event => {
@@ -25,9 +22,6 @@ const BookingModal = ({ productForModal, setProductForModal }) => {
             bookingTime: new Date()
         }
 
-        // TODO: send data to the server
-        // and once data is saved then close the modal 
-        // and display success toast
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
