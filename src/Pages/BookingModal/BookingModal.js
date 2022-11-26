@@ -3,54 +3,49 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
-const BookingModal = ({ productForModal, setTreatment, selectedDate, refetch }) => {
+const BookingModal = ({ productForModal, setProductForModal }) => {
     // treatment is just another name of appointmentOptions with name, slots, _id
-    const { _id, categoryId, categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, postingTime, sellerName, image } = productForModal;
+    const { _id, productName, resalePrice } = productForModal;
     // const date = format(selectedDate, 'PP');
     const { user } = useContext(AuthContext);
 
     const handleBooking = event => {
         event.preventDefault();
         const form = event.target;
-        const slot = form.slot.value;
-        const name = form.name.value;
-        const email = form.email.value;
+        const productId = _id;
         const phone = form.phone.value;
-        // [3, 4, 5].map((value, i) => console.log(value))
-        // const booking = {
-        //     appointmentDate: date,
-        //     treatment: treatmentName,
-        //     patient: name,
-        //     slot,
-        //     email,
-        //     phone,
-        //     price
-        // }
+        const location = form.location.value;
+        const userEmail = user?.email;
+
+        const booking = {
+            userEmail,
+            productId,
+            phone,
+            location,
+            bookingTime: new Date()
+        }
 
         // TODO: send data to the server
         // and once data is saved then close the modal 
         // and display success toast
-        // fetch('https://doctors-portal-server-rust.vercel.app/bookings', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(booking)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         if (data.acknowledged) {
-        //             setTreatment(null);
-        //             toast.success('Booking confirmed');
-        //             refetch();
-        //         }
-        //         else {
-        //             toast.error(data.message);
-        //         }
-        //     })
-
-
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    setProductForModal(null);
+                    toast.success('Booking confirmed');
+                }
+                else {
+                    toast.error(data.message);
+                }
+            })
     }
 
     return (
@@ -59,21 +54,24 @@ const BookingModal = ({ productForModal, setTreatment, selectedDate, refetch }) 
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-lg font-bold">{productName}</h3>
-                    <form className='grid grid-cols-1 gap-3 mt-10'>
-                        <input type="text" disabled value={user?.displayName} className="input w-full input-bordered " />
-                        <input type="text" disabled value={user?.email} className="input w-full input-bordered " />
-                        <select name="slot" className="select select-bordered w-full">
-                            {/* {
-                                slots.map((slot, i) => <option
-                                    value={slot}
-                                    key={i}
-                                >{slot}</option>)
-                            } */}
-                        </select>
-                        <input name="name" type="text" defaultValue={user?.displayName} disabled placeholder="Your Name" className="input w-full input-bordered" />
-                        <input name="email" type="email" defaultValue={user?.email} disabled placeholder="Email Address" className="input w-full input-bordered" />
-                        <input name="phone" type="text" placeholder="Phone Number" className="input w-full input-bordered" />
+                    <form onSubmit={handleBooking} className='grid grid-cols-1 gap-1 mt-2'>
+                        <input type="text" disabled value={user?.displayName} className="input w-full input-bordered rounded-none" />
+
+                        <input type="email" disabled value={user?.email} className="input w-full input-bordered rounded-none" />
+
+                        <div className='flex'>
+                            <label className="label w-24 bg-base-200"> <span className="label-text text-sm font-semibold">Product:</span></label>
+                            <input type="text bg-base-200" disabled value={productName} className="input w-full input-bordered rounded-none font-semibold" />
+                        </div>
+
+                        <div className='flex'>
+                            <label className="label w-24 bg-base-200"> <span className="label-text text-sm font-semibold">Price:</span></label>
+                            <input type="text" disabled value={resalePrice} className="input w-full input-bordered rounded-none font-semibold" />
+                        </div>
+
+                        <input name="phone" type="text" placeholder="Give Phone Number" className="input w-full input-bordered rounded-none" />
+
+                        <input name="location" type="text" placeholder="Enter Meeting Location" className="input w-full input-bordered rounded-none" />
                         <br />
                         <input className='btn btn-accent w-full' type="submit" value="Submit" />
                     </form>

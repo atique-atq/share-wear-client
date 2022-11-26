@@ -30,8 +30,7 @@ const Category = () => {
                 <BookingModal
                     // selectedDate={selectedDate}
                     productForModal={productForModal}
-                // setTreatment={setTreatment}
-                // refetch={refetch}
+                    setProductForModal={setProductForModal}
                 ></BookingModal>
             }
         </div>
