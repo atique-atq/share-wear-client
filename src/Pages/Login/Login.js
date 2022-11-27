@@ -21,7 +21,6 @@ const Login = () => {
         googleSignIn(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log('logged in', user);
 
                 // const currentUser = {
                 //     email: user.email
@@ -99,7 +98,6 @@ const Login = () => {
                 //             position: "top-right"
                 //         });
                 //     });              
-                console.log('logged in', user);
             })
             .catch(er => {
                 console.log('error:', er);

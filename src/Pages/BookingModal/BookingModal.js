@@ -31,7 +31,6 @@ const BookingModal = ({ productForModal, setProductForModal }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.acknowledged) {
                     setProductForModal(null);
                     toast.success(`${productName} is booked!`);
