@@ -18,12 +18,6 @@ const DashboardLayout = () => {
     return (
         <div>
             <Navbar></Navbar>
-            {
-                (loading || isAdminLoading || isSellerLoading || isBuyerLoading)
-                && <Loading></Loading>
-
-
-            }
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
@@ -32,6 +26,10 @@ const DashboardLayout = () => {
                 <div className="drawer-side">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 text-[#146EBE] bg-white font-semibold underline">
+                        {
+                            (loading || isAdminLoading || isSellerLoading || isBuyerLoading)
+                            && <Loading></Loading>
+                        }
                         {
                             isAdmin && <>
                                 <li><Link to="/dashboard/allsellers">All Sellers</Link></li>

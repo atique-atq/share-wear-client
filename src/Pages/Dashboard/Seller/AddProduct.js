@@ -79,6 +79,7 @@ const AddProduct = () => {
                         sellerName: user?.displayName,
                         description: data.description,
                         email: user?.email,
+                        status: 'available',
                     }
 
                     // save product information to the database
