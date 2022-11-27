@@ -9,6 +9,7 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError"
 import AddProduct from "../../Pages/Dashboard/Seller/AddProduct";
+import MyProducts from "../../Pages/Dashboard/Seller/MyProducts";
 import SellerRoute from "../SellerRoute/SellerRoute";
 
 
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/addproduct',
                 element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
+            },
+            {
+                path: '/dashboard/myproducts',
+                element: <SellerRoute><MyProducts ></MyProducts></SellerRoute>
             },
             //     {
             //         path: '/dashboard/managedoctors',

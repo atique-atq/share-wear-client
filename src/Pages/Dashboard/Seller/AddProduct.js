@@ -1,10 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 import Loading from '../../Shared/Loading/Loading';
+import toast from 'react-hot-toast';
 
 const AddProduct = () => {
+    const { user, loading } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
             category: '',
@@ -12,6 +15,8 @@ const AddProduct = () => {
         }
     });
 
+
+    const imageHostKey = process.env.REACT_APP_imgbb_key;
     const navigate = useNavigate();
 
     const { data: categories, isLoading } = useQuery({
@@ -23,12 +28,17 @@ const AddProduct = () => {
         }
     })
 
-    if (isLoading) {
+    if (isLoading || loading) {
         return <Loading></Loading>
     }
 
     // make category object for getting category id from db
     // this will be needed for inserting product
+    // {
+    //     blazer: 'o2uieu913423',
+    //     sharee: '23424823847234',
+    //     kameez: '123123',        
+    //  }
     const categoryObject = {}
 
     const getCategoryObject = () => {
@@ -41,7 +51,54 @@ const AddProduct = () => {
     // console.log('category object is', categoryObject);
 
     const handleAddProduct = data => {
-        console.log(data);
+        const image = data.image[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgData => {
+                if (imgData.success) {
+                    console.log(data);
+                    // console.log('yeyy!!', imgData.data.url);
+                    const product = {
+                        categoryId: categoryObject[data.category],
+                        category: data.category,
+                        condition: data.condition,
+                        image: imgData.data.url,
+                        location: data.location,
+                        mobileNumber: data.mobileNumber,
+                        productName: data.name,
+                        originalPrice: data.originalPrice,
+                        resalePrice: data.resalePrice,
+                        yearsOfUse: data.yearsOfUse,
+                        postingTime: new Date(),
+                        sellerName: user?.displayName,
+                        description: data.description,
+                        email: user?.email,
+                    }
+
+                    // save product information to the database
+                    fetch('http://localhost:5000/products', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(product)
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            console.log(result);
+                            toast.success(`${data.name} is added successfully`);
+                            navigate('/dashboard/myproducts')
+                        })
+                }
+            })
+
 
     }
     return (

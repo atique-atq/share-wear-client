@@ -3,7 +3,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { format } from 'date-fns';
 
 const CategoryProduct = ({ product, setProductForModal }) => {
-    const { _id, categoryId, categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, postingTime, sellerName, image } = product;
+    const { _id, categoryId, categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, condition, description, postingTime, sellerName, image } = product;
     const images = [image]
     const postingDate = format(Date.parse(postingTime), 'Pp');
 
@@ -27,6 +27,12 @@ const CategoryProduct = ({ product, setProductForModal }) => {
                     <br />
                     <small>Location: {location}</small>
                     <small>Category: {categoryName}</small>
+                    {
+                        condition && <small>Condition: {condition}</small>
+                    }
+                    {
+                        description && <small>Description: {description}</small>
+                    }
                     <small>Year of Use: {yearsOfUse}</small>
                     <small className='italic'>Posting Time: {postingDate}</small>
                     <small className='font-semibold border-solid border-t-2 mt-3 pt-1'>Seller: {sellerName}</small>
