@@ -11,6 +11,7 @@ import DisplayError from "../../Pages/Shared/DisplayError/DisplayError"
 import AddProduct from "../../Pages/Dashboard/Seller/AddProduct";
 import MyProducts from "../../Pages/Dashboard/Seller/MyProducts";
 import SellerRoute from "../SellerRoute/SellerRoute";
+import WelcomeDashboard from "../../Pages/Dashboard/WelcomeDashboard";
 
 
 const router = createBrowserRouter([
@@ -47,10 +48,10 @@ const router = createBrowserRouter([
         element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         errorElement: <DisplayError></DisplayError>,
         children: [
-            //     {
-            //         path: '/dashboard',
-            //         element: <MyAppointment></MyAppointment>
-            //     },
+            {
+                path: '/dashboard',
+                element: <WelcomeDashboard ></WelcomeDashboard>
+            },
             //     {
             //         path: '/dashboard/allusers',
             //         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>

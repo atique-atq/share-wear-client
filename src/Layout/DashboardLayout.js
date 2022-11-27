@@ -5,17 +5,25 @@ import useAdmin from '../hooks/useAdmin';
 import useBuyer from '../hooks/useBuyer';
 import useSeller from '../hooks/useSeller';
 import Footer from '../Pages/Shared/Footer/Footer';
+import Loading from '../Pages/Shared/Loading/Loading';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
-    const { user } = useContext(AuthContext);
-    const [isAdmin] = useAdmin(user?.email)
-    const [isSeller] = useSeller(user?.email)
-    const [isBuyer] = useBuyer(user?.email)
+    const { user, loading } = useContext(AuthContext);
+    const [isAdmin, isAdminLoading] = useAdmin(user?.email)
+    const [isSeller, isSellerLoading] = useSeller(user?.email)
+    const [isBuyer, isBuyerLoading] = useBuyer(user?.email)
+
 
     return (
         <div>
             <Navbar></Navbar>
+            {
+                (loading || isAdminLoading || isSellerLoading || isBuyerLoading)
+                && <Loading></Loading>
+
+
+            }
             <div className="drawer drawer-mobile">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">

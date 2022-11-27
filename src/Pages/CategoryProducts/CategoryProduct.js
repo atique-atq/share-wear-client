@@ -3,11 +3,10 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { format } from 'date-fns';
 
 const CategoryProduct = ({ product, setProductForModal }) => {
-    const { _id, categoryId, categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, condition, description, postingTime, sellerName, image } = product;
+    const { categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, condition, description, postingTime, sellerName, image } = product;
     const images = [image]
     const postingDate = format(Date.parse(postingTime), 'Pp');
 
-    // const date = format(selectedDate, 'PP');
     return (
         <div>
             <div className="card card-side w-full bg-base-100 shadow-xl">
