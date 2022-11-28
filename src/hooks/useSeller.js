@@ -10,7 +10,6 @@ const useSeller = (email, verified = false) => {
                 .then(res => res.json())
                 .then(data => {
                     setIsSeller(data.isSeller);
-                    console.log('data is--', data);
                     setVerified(data.isVerified)
                     setIsSellerLoading(false);
                 })

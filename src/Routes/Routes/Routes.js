@@ -12,9 +12,12 @@ import AddProduct from "../../Pages/Dashboard/Seller/AddProduct";
 import MyProducts from "../../Pages/Dashboard/Seller/MyProducts";
 import SellerRoute from "../SellerRoute/SellerRoute";
 import AdminRoute from "../AdminRoute/AdminRoute";
+import BuyerRoute from "../BuyerRoute/BuyerRoute";
 import WelcomeDashboard from "../../Pages/Dashboard/WelcomeDashboard";
 import AllSellers from "../../Pages/Dashboard/Admin/AllSellers";
 import AllBuyers from "../../Pages/Dashboard/Admin/AllBuyers";
+import MyOrders from "../../Pages/Dashboard/Buyer/MyOrders";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -71,15 +74,16 @@ const router = createBrowserRouter([
                 path: '/dashboard/myproducts',
                 element: <SellerRoute><MyProducts ></MyProducts></SellerRoute>
             },
-            //     {
-            //         path: '/dashboard/managedoctors',
-            //         element: <AdminRoute><ManageDoctors></ManageDoctors></AdminRoute>
-            //     },
-            //     {
-            //         path: '/dashboard/payment/:id',
-            //         element: <Payment></Payment>,
-            //         loader: ({ params }) => fetch(`https://doctors-portal-server-rust.vercel.app/bookings/${params.id}`)
-            //     },
+            {
+                path: '/dashboard/myorders',
+                element: <BuyerRoute><MyOrders ></MyOrders></BuyerRoute>
+            },
+
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment ></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+            },
         ]
     }
 ])
