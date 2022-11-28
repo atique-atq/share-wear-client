@@ -18,9 +18,9 @@ const CheckoutForm = ({ booking }) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
+                // authorization: `bearer ${localStorage.getItem('accessToken')}`
             },
-            body: JSON.stringify({ resalePrice }),
+            body: JSON.stringify({ price: resalePrice }),
         })
             .then((res) => res.json())
             .then((data) => setClientSecret(data.clientSecret));

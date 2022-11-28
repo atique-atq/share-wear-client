@@ -13,16 +13,18 @@ const Payment = () => {
     // if(navigation.state === "loading"){
     //     return <Loading></Loading>
     // }
+
+    console.log(stripePromise);
     return (
         <div className='m-20'>
-            <h3 className="text-xl">Payment for <small className='text-2xl font-semibold'>{productName}</small></h3>
-            <p className="text-xl">Please pay <strong>{resalePrice} tk <small className='font-normal text-base'>(${resalePrice / 100})</small></strong> for your product </p>
-            <div className='w-96 my-12'>
-                {/* <Elements stripe={stripePromise}>
+            <h3 className="text-xl pb-2 text-center">Payment for <small className='text-2xl font-semibold'>{productName}</small></h3>
+            <p className="text-xl text-center">Please pay <strong>{resalePrice} tk <small className='font-normal text-base'>(${resalePrice / 100})</small></strong> for your product </p>
+            <div className='w-96 my-12 mx-auto border-solid border-2 text-center p-2'>
+                <Elements stripe={stripePromise}>
                     <CheckoutForm
                         booking={booking}
                     />
-                </Elements> */}
+                </Elements>
             </div>
         </div>
     );
