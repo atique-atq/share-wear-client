@@ -1,11 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useSeller from '../../../hooks/useSeller';
 import Loading from '../../Shared/Loading/Loading';
 
 const AllSellers = () => {
     const { user, loading } = useContext(AuthContext);
+    const [verfiedClick, setVerfiedClick] = useState(false);
+    const [isSeller, isSellerLoading] = useSeller(user?.email, verfiedClick);
     const { data: allSellers, isLoading, refetch } = useQuery({
         queryKey: ['allSellers'],
         queryFn: async () => {
@@ -15,7 +18,7 @@ const AllSellers = () => {
         }
     })
 
-    if (isLoading || loading) {
+    if (isLoading || loading || isSellerLoading) {
         return <Loading></Loading>
     }
 
@@ -33,6 +36,7 @@ const AllSellers = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
+                    setVerfiedClick(true);
                     toast.success(`${sellerName} verified successfully!!`)
                     refetch();
                 }

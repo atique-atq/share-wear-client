@@ -5,9 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import Loading from '../../Shared/Loading/Loading';
 import toast from 'react-hot-toast';
+import useSeller from '../../../hooks/useSeller';
 
 const AddProduct = () => {
     const { user, loading } = useContext(AuthContext);
+    const [isSeller, isSellerLoading, isVerified] = useSeller(user?.email);
+
+    const getProductVerification = () => {
+        return isVerified ? 'verified' : '';
+    }
+
     const { register, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
             category: '',
@@ -28,17 +35,12 @@ const AddProduct = () => {
         }
     })
 
-    if (isLoading || loading) {
+    if (isLoading || loading || isSellerLoading) {
         return <Loading></Loading>
     }
 
     // make category object for getting category id from db
     // this will be needed for inserting product
-    // {
-    //     blazer: 'o2uieu913423',
-    //     sharee: '23424823847234',
-    //     kameez: '123123',        
-    //  }
     const categoryObject = {}
 
     const getCategoryObject = () => {
@@ -63,7 +65,6 @@ const AddProduct = () => {
             .then(imgData => {
                 if (imgData.success) {
                     console.log(data);
-                    // console.log('yeyy!!', imgData.data.url);
                     const product = {
                         categoryId: categoryObject[data.category],
                         category: data.category,
@@ -80,6 +81,7 @@ const AddProduct = () => {
                         description: data.description,
                         email: user?.email,
                         status: 'available',
+                        verification: getProductVerification(),
                     }
 
                     // save product information to the database
