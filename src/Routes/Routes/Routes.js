@@ -11,7 +11,10 @@ import DisplayError from "../../Pages/Shared/DisplayError/DisplayError"
 import AddProduct from "../../Pages/Dashboard/Seller/AddProduct";
 import MyProducts from "../../Pages/Dashboard/Seller/MyProducts";
 import SellerRoute from "../SellerRoute/SellerRoute";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import WelcomeDashboard from "../../Pages/Dashboard/WelcomeDashboard";
+import AllSellers from "../../Pages/Dashboard/Admin/AllSellers";
+import AllBuyers from "../../Pages/Dashboard/Admin/AllBuyers";
 
 
 const router = createBrowserRouter([
@@ -52,10 +55,14 @@ const router = createBrowserRouter([
                 path: '/dashboard',
                 element: <WelcomeDashboard ></WelcomeDashboard>
             },
-            //     {
-            //         path: '/dashboard/allusers',
-            //         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-            //     },
+            {
+                path: '/dashboard/allsellers',
+                element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
+            },
+            {
+                path: '/dashboard/allbuyers',
+                element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
+            },
             {
                 path: '/dashboard/addproduct',
                 element: <SellerRoute><AddProduct></AddProduct></SellerRoute>

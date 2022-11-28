@@ -3,7 +3,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { format } from 'date-fns';
 
 const CategoryProduct = ({ product, setProductForModal }) => {
-    const { categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, condition, description, postingTime, sellerName, image } = product;
+    const { categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, condition, description, postingTime, sellerName, image, verification } = product;
     const images = [image]
     const postingDate = format(Date.parse(postingTime), 'Pp');
 
@@ -33,8 +33,15 @@ const CategoryProduct = ({ product, setProductForModal }) => {
                         description && <small>Description: {description}</small>
                     }
                     <small>Year of Use: {yearsOfUse}</small>
-                    <small className='italic'>Posting Time: {postingDate}</small>
-                    <small className='font-semibold border-solid border-t-2 mt-3 pt-1'>Seller: {sellerName}</small>
+                    <small className='italic border-solid border-b-2 pb-2'>Posting Time: {postingDate}</small>
+                    <div className='flex justify-around items-center mt-2 text-xl'>
+                        <small className='font-bold'>Seller: {sellerName}</small>
+                        <div>
+                            {
+                                verification === 'verified' && <p className='text-blue-500'>verified</p>
+                            }
+                        </div>
+                    </div>
                     <br />
                     <div className="card-actions justify-end">
                         <label
