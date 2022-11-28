@@ -1,6 +1,7 @@
 import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { format } from 'date-fns';
+import { TiTick } from "react-icons/ti";
 
 const CategoryProduct = ({ product, setProductForModal }) => {
     const { categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, condition, description, postingTime, sellerName, image, verification } = product;
@@ -38,7 +39,7 @@ const CategoryProduct = ({ product, setProductForModal }) => {
                         <small className='font-bold'>Seller: {sellerName}</small>
                         <div>
                             {
-                                verification === 'verified' && <p className='text-blue-500'>verified</p>
+                                verification === 'verified' && <p className='text-blue-500 text-3xl' title='Verified Seller'> <TiTick></TiTick></p>
                             }
                         </div>
                     </div>
