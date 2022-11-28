@@ -6,10 +6,12 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 import Loading from '../../Shared/Loading/Loading';
 import toast from 'react-hot-toast';
 import useSeller from '../../../hooks/useSeller';
+import useTitle from '../../../hooks/useTitle';
 
 const AddProduct = () => {
     const { user, loading } = useContext(AuthContext);
     const [isSeller, isSellerLoading, isVerified] = useSeller(user?.email);
+    useTitle('Add Product')
 
     const getProductVerification = () => {
         return isVerified ? 'verified' : '';
