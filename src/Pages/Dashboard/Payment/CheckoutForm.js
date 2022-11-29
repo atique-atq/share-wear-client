@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const CheckoutForm = ({ booking }) => {
     const [cardError, setCardError] = useState('');
@@ -20,7 +21,7 @@ const CheckoutForm = ({ booking }) => {
                 "Content-Type": "application/json",
                 // authorization: `bearer ${localStorage.getItem('accessToken')}`
             },
-            body: JSON.stringify({ price: resalePrice }),
+            body: JSON.stringify({ price: resalePrice / 100 }),
         })
             .then((res) => res.json())
             .then((data) => setClientSecret(data.clientSecret));
@@ -59,8 +60,7 @@ const CheckoutForm = ({ booking }) => {
                     card: card,
                     billing_details: {
                         phone: phone,
-                        email: userEmail,
-                        location: location
+                        email: userEmail
                     },
                 },
             },
@@ -71,6 +71,7 @@ const CheckoutForm = ({ booking }) => {
             return;
         }
         if (paymentIntent.status === "succeeded") {
+            toast.success('payment done');
             console.log('card info', card);
             // store payment info in the database
             const payment = {
@@ -121,7 +122,7 @@ const CheckoutForm = ({ booking }) => {
                     }}
                 />
                 <button
-                    className='btn btn-sm mt-4 btn-primary'
+                    className='btn w-2/12 mt-6 btn-primary'
                     type="submit"
                     disabled={!stripe || !clientSecret || processing}>
                     Pay
