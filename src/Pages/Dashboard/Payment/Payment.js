@@ -14,8 +14,9 @@ const Payment = () => {
     return (
         <div className='m-20'>
             <h3 className="text-xl pb-2 text-center">Payment for <small className='text-2xl font-semibold'>{productName}</small></h3>
-            <p className="text-xl text-center">Please pay <strong>{resalePrice} tk <small className='font-normal text-base'>(${resalePrice})</small></strong> for your product </p>
-            <div className='w-9/12 my-12 mx-auto border-solid border-2 text-center p-2'>
+            <p className="text-xl text-center">Please pay <strong>{resalePrice} tk <small className='font-normal text-base'></small></strong> for your product </p>
+            {/* border-solid border-2 */}
+            <div className='w-7/12 my-12 mx-auto  text-center p-5 shadow-xl'>
                 <Elements stripe={stripePromise}>
                     <CheckoutForm
                         booking={booking}
