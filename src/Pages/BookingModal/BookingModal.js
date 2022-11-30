@@ -25,7 +25,7 @@ const BookingModal = ({ productForModal, setProductForModal }) => {
             bookingTime: new Date()
         }
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://sharewear-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

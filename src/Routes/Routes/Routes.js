@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`),
+                loader: ({ params }) => fetch(`https://sharewear-server.vercel.app/category/${params.id}`),
                 element: <PrivateRoute> <Category></Category></PrivateRoute>
             },
         ]
@@ -87,7 +87,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment ></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://sharewear-server.vercel.app/bookings/${params.id}`)
             },
         ]
     }

@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# ShareWeare
+## Website for purchasing second hand dresses
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live URL [ShareWear](https://sharewearbd.web.app/).
 
-## Available Scripts
+## Features and Technology:
 
-In the project directory, you can run:
 
-### `npm start`
+### `Features and Functionalities`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* E-commerce website for purchasing second hand dressed around the country.
+* Here in the homepage, Customer will see navbar will necessary menu, a landing banner with necessary images and information. Below that banner, category of the available dresses will be found. Upon click on the show details product of that category will be shown.
+* In products page under a specific category, card of the available products will be shown. If any seller is verified by the `admin` there will be `tick` means `verified seller` by the admin. , 
+* If user find any unwanted product, he/she can report that specific product which will be deleted by the admin later.
+* In the advertisement section, if seller wants to be shown in advertisement, will be be in this section.
+* Besides `authentication` of seller, buyer and admin, `authorization` of each roll has been implemented. Where `seller` can add product,delete product, admin can `delete seller`, `delete` buyer and reported items. 
+* From booked items, buyer can complete his online `payment`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `Technologies`
+* This is a single page application has been implemented using react, tailwind, daisyUi, html
+* For authentication purpose we have used google firebase.
+* Also we have implemented react router dom, context api, private router etc.
+* for server side we have used express js which have been deployed in vercel.
+* `Stripe` has been implemented as payment gateway.
+* all the sites part have been made responsive.

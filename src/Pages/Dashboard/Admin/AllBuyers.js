@@ -11,7 +11,7 @@ const AllBuyers = () => {
     const { data: allBuyers, isLoading, refetch } = useQuery({
         queryKey: ['allBuyers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users/buyers');
+            const res = await fetch('https://sharewear-server.vercel.app/users/buyers');
             const data = await res.json();
             return data;
         }
@@ -22,7 +22,7 @@ const AllBuyers = () => {
     }
 
     const handleDeleteBuyer = (_id, buyerName) => {
-        fetch(`http://localhost:5000/seller/${_id}`, {
+        fetch(`https://sharewear-server.vercel.app/seller/${_id}`, {
             method: 'DELETE',
             // headers: {
             //     authorization: `bearer ${localStorage.getItem('accessToken')}`

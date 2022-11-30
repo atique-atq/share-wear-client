@@ -6,7 +6,7 @@ const useSeller = (email, verified = false) => {
     const [isSellerLoading, setIsSellerLoading] = useState(true);
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/users/seller/${email}`)
+            fetch(`https://sharewear-server.vercel.app/users/seller/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     setIsSeller(data.isSeller);

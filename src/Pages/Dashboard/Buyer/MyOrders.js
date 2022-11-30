@@ -9,7 +9,7 @@ const MyOrders = () => {
     useTitle('My Orders');
     const { user, loading } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`
+    const url = `https://sharewear-server.vercel.app/bookings?email=${user?.email}`
     const { data: myorders, isLoading, refetch } = useQuery({
         queryKey: ['myorders'],
         queryFn: async () => {

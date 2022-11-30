@@ -12,7 +12,7 @@ const ReportedItems = () => {
     const { data: reportedItems, isLoading, refetch } = useQuery({
         queryKey: ['reportedItems'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/products/reported');
+            const res = await fetch('https://sharewear-server.vercel.app/products/reported');
             const data = await res.json();
             return data;
         }
@@ -23,7 +23,7 @@ const ReportedItems = () => {
     }
 
     const handleDeleteItem = (_id, productName) => {
-        fetch(`http://localhost:5000/product/${_id}`, {
+        fetch(`https://sharewear-server.vercel.app/product/${_id}`, {
             method: 'DELETE',
             // headers: {
             //     authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -37,7 +37,6 @@ const ReportedItems = () => {
                 }
             })
     }
-
     refetch();
 
     return (

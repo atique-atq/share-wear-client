@@ -10,7 +10,7 @@ const CategoryProduct = ({ product, setProductForModal, isBuyer, refetch }) => {
     const postingDate = format(Date.parse(postingTime), 'Pp');
 
     const handleReportItem = (_id, productName) => {
-        fetch(`http://localhost:5000/report/${_id}`, {
+        fetch(`https://sharewear-server.vercel.app/report/${_id}`, {
             method: 'PUT',
             headers: {
                 // authorization: `bearer ${localStorage.getItem('accessToken')}`
