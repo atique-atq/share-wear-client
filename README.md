@@ -23,4 +23,12 @@ Live URL [ShareWear](https://sharewearbd.web.app/).
 * Also we have implemented react router dom, context api, private router etc.
 * for server side we have used express js which have been deployed in vercel.
 * `Stripe` has been implemented as payment gateway.
-* all the sites part have been made responsive.
+* Website has have been made responsive.
+
+
+
+## `Admin Credential`
+
+adminEmail: admin@gmail.com
+
+adminPassword: 123123
