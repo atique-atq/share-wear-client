@@ -5,14 +5,10 @@ const SingleAdvertisement = ({ singleAdvertisement, valueForBgSelection }) => {
     console.log('checking value', parseInt(valueForBgSelection) % 2 === 0);
     let bgColor = parseInt(valueForBgSelection) % 2 === 0 ? '#E6C7D6' : '#EBC69B';
 
-    if (status !== "sold") {
-        setShowHeader(true)
-    }
-
     return (
         <div>
             {
-                status !== "sold" && <div style={{
+                <div style={{
                     backgroundColor: bgColor,
                 }}>
                     <div className="card shadow-xl card-text place-content-center rounded-none w-full" >

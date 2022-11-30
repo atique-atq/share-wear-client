@@ -4,7 +4,7 @@ import Loading from '../../Shared/Loading/Loading';
 import SingleAdvertisement from './SingleAdvertisement';
 
 const Advertisement = () => {
-    const [showHeader, setShowHeader] = useState(false);
+    // const [showHeader, setShowHeader] = useState(false);
     const { data: advertisements = [], isLoading, refetch } = useQuery({
         queryKey: ['advertisements'],
         queryFn: async () => {
@@ -25,7 +25,7 @@ const Advertisement = () => {
                 (advertisements?.length > 0) &&
                 <div>
                     {
-                        showHeader && <div>
+                        <div>
                             <p className='font-mono text-4xl text-center font-bold text-[#F6740A]'>Advertisements</p>
                             <div className='grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-20 my-8'>
                                 {
@@ -33,7 +33,7 @@ const Advertisement = () => {
                                         key={singleAdvertisement._id}
                                         valueForBgSelection={index}
                                         singleAdvertisement={singleAdvertisement}
-                                        setShowHeader={setShowHeader}
+                                    // setShowHeader={setShowHeader}
                                     ></SingleAdvertisement>)
                                 }
                             </div>
