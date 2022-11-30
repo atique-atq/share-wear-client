@@ -6,10 +6,10 @@ import Loading from '../../Pages/Shared/Loading/Loading';
 
 const BuyerRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
-    const [isBuyer, setIsBuyerLoading] = useBuyer(user?.email);
+    const [isBuyer, isBuyerLoading] = useBuyer(user?.email);
     const location = useLocation();
 
-    if (loading || setIsBuyerLoading) {
+    if (loading || isBuyerLoading) {
         return <Loading></Loading>
     }
 

@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
+import useBuyer from '../../hooks/useBuyer';
 import BookingModal from '../BookingModal/BookingModal';
 import CategoryProduct from '../CategoryProducts/CategoryProduct';
 
 const Category = () => {
     let products = useLoaderData();
+    const { user, loading } = useContext(AuthContext);
+    const [isBuyer, isBuyerLoading, refetch] = useBuyer(user?.email);
+
     const [productForModal, setProductForModal] = useState(null);
     let titleName = 'Products'
     if (products) {
@@ -20,6 +25,8 @@ const Category = () => {
                     products?.map(product => <CategoryProduct
                         key={product._id}
                         product={product}
+                        isBuyer={isBuyer}
+                        refetch={refetch}
                         setProductForModal={setProductForModal}
                     ></CategoryProduct>)
                 }
@@ -28,7 +35,6 @@ const Category = () => {
             {
                 productForModal &&
                 <BookingModal
-                    // selectedDate={selectedDate}
                     productForModal={productForModal}
                     setProductForModal={setProductForModal}
                 ></BookingModal>

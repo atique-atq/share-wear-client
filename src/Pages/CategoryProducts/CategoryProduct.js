@@ -2,11 +2,28 @@ import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { format } from 'date-fns';
 import { TiTick } from "react-icons/ti";
+import toast from 'react-hot-toast';
 
-const CategoryProduct = ({ product, setProductForModal }) => {
-    const { categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, condition, description, postingTime, sellerName, image, verification, status } = product;
+const CategoryProduct = ({ product, setProductForModal, isBuyer, refetch }) => {
+    const { _id, categoryName, productName, location, resalePrice, originalPrice, yearsOfUse, condition, description, postingTime, sellerName, image, verification, status, reported } = product;
     const images = [image]
     const postingDate = format(Date.parse(postingTime), 'Pp');
+
+    const handleReportItem = (_id, productName) => {
+        fetch(`http://localhost:5000/report/${_id}`, {
+            method: 'PUT',
+            headers: {
+                // authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success(`${productName} reported`);
+                    refetch();
+                }
+            })
+    }
 
     return (
         <div>
@@ -45,14 +62,36 @@ const CategoryProduct = ({ product, setProductForModal }) => {
                             </div>
                         </div>
                         <br />
-                        <div className="card-actions justify-end">
-                            <label
-                                onClick={() => setProductForModal(product)}
-                                className="btn btn-primary"
-                                htmlFor="booking-modal"
-                            >Book Now</label>
-                        </div>
+                        {
+                            !isBuyer && <div className="card-actions justify-end mt-2">
+                                <label
+                                    onClick={() => setProductForModal(product)}
+                                    className="btn btn-primary"
+                                    htmlFor="booking-modal"
+                                >Book Now</label>
+                            </div>
+                        }
                         <br />
+                        {
+                            isBuyer && <div className='flex justify-between items-center mt-2'>
+                                {
+                                    reported ?
+                                        <small className='btn btn-sm bg-white outline-none' disabled>Reported</small>
+                                        :
+                                        <button onClick={() => handleReportItem(_id, productName)} className="card-actions justify-end rounded-none border-0 italic text-gray-600 underline text-sm btn btn-outline">
+                                            <small>Report item</small>
+                                        </button>
+                                }
+
+                                <div className="card-actions">
+                                    <label
+                                        onClick={() => setProductForModal(_id)}
+                                        className="btn btn-primary"
+                                        htmlFor="booking-modal"
+                                    >Book Now</label>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
             }

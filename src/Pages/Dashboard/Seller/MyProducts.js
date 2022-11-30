@@ -78,7 +78,7 @@ const MyProducts = () => {
                                     </div>
                                 </div></td>
                                 <td>{product.resalePrice}</td>
-                                <td>{product.status}</td>
+                                <td className='text-xl font-bold'>{product.status}</td>
                                 <td><button onClick={() => handleDeleteProduct(product._id)} className='btn btn-xs btn-primary'>Delete</button></td>
 
                                 <td>{product?.status === 'available' && <button onClick={() => handleAdvertise(product._id)} className='btn btn-xs btn-info' disabled={product.advertisement === 'yes'} >Advertise</button>}</td>
