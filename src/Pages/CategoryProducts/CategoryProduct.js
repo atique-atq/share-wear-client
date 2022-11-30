@@ -85,7 +85,7 @@ const CategoryProduct = ({ product, setProductForModal, isBuyer, refetch }) => {
 
                                 <div className="card-actions">
                                     <label
-                                        onClick={() => setProductForModal(_id)}
+                                        onClick={() => setProductForModal(product)}
                                         className="btn btn-primary"
                                         htmlFor="booking-modal"
                                     >Book Now</label>
