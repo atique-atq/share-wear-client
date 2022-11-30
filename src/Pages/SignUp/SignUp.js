@@ -21,7 +21,7 @@ const SignUp = () => {
         const name = form.name.value;
         const photoURL = form.photoUrl.value;
         const email = form.email.value;
-        const password = form.password.value;
+        const password = form.password.value.toLowerCase();
         const confirm = form.confirmPassword.value;
         const role = form.role.value;
 

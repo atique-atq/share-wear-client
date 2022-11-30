@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleAdvertisement = ({ singleAdvertisement, valueForBgSelection }) => {
-    const { productName, image, originalPrice, resalePrice, status, setShowHeader } = singleAdvertisement;
+    const { productName, image, originalPrice, resalePrice } = singleAdvertisement;
     console.log('checking value', parseInt(valueForBgSelection) % 2 === 0);
     let bgColor = parseInt(valueForBgSelection) % 2 === 0 ? '#E6C7D6' : '#EBC69B';
 

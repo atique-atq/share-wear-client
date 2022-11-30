@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
-import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import useTitle from '../../../hooks/useTitle';
@@ -23,6 +22,8 @@ const MyOrders = () => {
     if (loading || isLoading) {
         return <Loading></Loading>
     }
+
+    refetch();
 
     return (
         <div>
