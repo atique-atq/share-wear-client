@@ -14,7 +14,6 @@ const DashboardLayout = () => {
     const [isSeller, isSellerLoading] = useSeller(user?.email)
     const [isBuyer, isBuyerLoading] = useBuyer(user?.email)
 
-
     return (
         <div>
             <Navbar></Navbar>
@@ -34,6 +33,7 @@ const DashboardLayout = () => {
                             isAdmin && <>
                                 <li><Link to="/dashboard/allsellers">All Sellers</Link></li>
                                 <li><Link to="/dashboard/allbuyers">All Buyers</Link></li>
+                                <li><Link to="/dashboard/reportedItems">Reported Items</Link></li>
 
                             </>
                         }
