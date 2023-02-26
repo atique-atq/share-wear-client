@@ -32,8 +32,8 @@ const Testimonial = () => {
                                                 <p className="text-base font-medium leading-6 mt-4 text-gray-600 italic">Products from this site are best at this price. So professional and friendly support system.. They are integrated into our daily work lives and help us to remember our customers always comes first, the last thank you should always comes from us.</p>
                                             </div>
                                             <div className="md:mt-0 mt-4">
-                                                <p className="text-base font-medium leading-4 text-gray-800">Atiqur Rahman</p>
-                                                <p className="text-base leading-4 mt-2 mb-4 text-gray-600">ICT Officer, ICT Ministry</p>
+                                                <p className="text-base font-medium leading-4 text-gray-800">Muhtadin Abdullah</p>
+                                                <p className="text-base leading-4 mt-2 mb-4 text-gray-600">Software Engineer</p>
                                             </div>
                                         </div>
                                     </div>

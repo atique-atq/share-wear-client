@@ -15,7 +15,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
 
     const handleGoogleSignIn = () => {
         googleSignIn(googleProvider)
@@ -45,6 +45,7 @@ const Login = () => {
                 //         });
                 //     });
                 saveUser(user.displayName, user.email);
+                navigate(from, { replace: true });
 
             })
             .catch(error => {
@@ -76,6 +77,7 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
+                navigate(from, { replace: true });
 
                 // const currentUser = {
                 //     email: user.email
